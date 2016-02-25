@@ -109,7 +109,7 @@ print() #Dette er her for å lage mellomrom mellom dette og neste eksempel
 #Man skriver altså {} i strengern hvor man ønsker å putte in variabel/verdi. Inni denne kan man oppgi forskjellige ting for å spesifisere forskjelligeting. for å gi bedskjed til python at det man skriver skal tolkes
 #som formaterings krav skriver man ':' inni {}. Da vet Python at det som kommer nå er kravene. formen er i dette eksemplet velger jeg å bruke * som fyll karakter. ^ betyr at variablen/verdien skal være midt i fyllet
 #20 betyr hvor mange characters som skal settes av til variablen/verdien. og fyll karakteren blir gjentatt så mange ganger som det mangler tegn for å fylle opp avsatt. 
-#
+
 
 print("Eksempel 6: Formatering med krav.6")
 formatertStreng = "Mitt navn er: {:*^20}, jeg er  {}år og har et snitt på {:.2f}".format(navn,alder,snitt)
