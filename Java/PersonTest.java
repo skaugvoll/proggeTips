@@ -41,9 +41,9 @@ import junit.framework.TestCase;
 
 public class PersonTest extends TestCase {
 	//creates a test object from the class we want to test.
-	
+
 	Person pers = new Person("Anonymous", 21, "12345678");
-	
+
 	//creates a valid testmetod, it's void, starts with 'test' and no parameters
 	@Test
 	public void testConstructer(){
@@ -51,11 +51,27 @@ public class PersonTest extends TestCase {
 		assertEquals(21, pers.getAge()); //checks if the age that we was set in the test persons constructor is what we wanted
 		assertEquals("12345678", pers.getMobile()); //checks if the mobile number we gave the test person 'pers', is what we expected.
 	}
-	
-	@Test(expected = IllegalArgumentException.class) //denotes that the method under is a testmethod that's going to test and expect a exception to be thrown. if not thrown, it fails
-	public void testSetNameException(){ //void method, no arguments and starts with test
-		pers.setName("Anno86"); //set the name on testPerson from Sigve to Kim, --> should throw IllegalArgumentException and give green test. If changed to Anno --> Red test.
-	}
-	
+
+//	I DO NOT UNDERSTAND WHY THIS DOSEN'T WORK!!!
+//	@Test(expected = IllegalArgumentException.class) //denotes that the method under is a testmethod that's going to test and expect a exception to be thrown. if not thrown, it fails
+//	public void testSetNameException(){ //void method, no arguments and starts with testd
+//		pers = new Person("Anonym",21, "12345678");
+//		pers.setName("Anno86"); //set the name on testPerson from Anonym to Anno86, --> should throw IllegalArgumentException and give green test. If changed to Anno --> Red test.
+//		fail( "Missing exception" );
+//	}
+
+
+		public void testSetNameException(){ //void method, no arguments and starts with test
+			try {
+				pers = new Person("Anonym",21, "12345678");
+				pers.setName("Anno86"); //set the name on testPerson from Anonym to Anno86, --> should throw IllegalArgumentException and give green test. If changed to Anno --> Red test.
+			     fail( "Missing exception" );
+			} catch( IllegalArgumentException e ) {
+			     assertEquals( "Name not valid", e.getMessage() ); // Optionally make sure you get the correct message, too
+			}
+			
+		}
+
+
 
 }
