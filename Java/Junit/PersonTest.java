@@ -40,8 +40,8 @@ import junit.framework.TestCase;
  */
 
 public class PersonTest extends TestCase {
-	//creates a test object from the class we want to test.
 
+	//creates a test object from the class we want to test.
 	Person pers = new Person("Anonymous", 21, "12345678");
 
 	//creates a valid testmetod, it's void, starts with 'test' and no parameters
@@ -53,18 +53,17 @@ public class PersonTest extends TestCase {
 	}
 
 
-
-		public void testSetNameException(){ //void method, no arguments and starts with test
-			try {
-				pers = new Person("Anonym",21, "12345678");
-				pers.setName("Anno86"); //set the name on testPerson from Anonym to Anno86, --> should throw IllegalArgumentException and give green test. If changed to Anno --> Red test.
-			     fail( "Missing exception" );
-			} catch( IllegalArgumentException e ) {
-			     assertEquals( "Name not valid", e.getMessage() ); // Optionally make sure you get the correct message, too
-			}
-			
+	//create valid testmethod, void method, no arguments and starts with test
+	@Test
+	public void testSetNameException(){ 
+		try {
+			pers = new Person("Anonym",21, "12345678");
+			pers.setName("Anno86"); //set the name on testPerson from Anonym to Anno86, --> should throw IllegalArgumentException and give green test. If changed to Anno --> Red test.
+		     fail( "Missing exception" );
+		} catch( IllegalArgumentException e ) {
+		     assertEquals( "Name not valid", e.getMessage() ); // Optionally make sure you get the correct message, too
 		}
-
-
+		
+	}
 
 }
