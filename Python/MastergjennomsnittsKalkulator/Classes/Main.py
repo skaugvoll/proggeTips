@@ -24,12 +24,12 @@ IT1603 = Fag("IKT, kultur og samfunn","IT1603",7.5,'D')
 
 emneliste = [IT1901,IT2901,TDT4100,TDT4120,TDT4140,TDT4145,TDT4160,IT2805,TDT4110,TDT4180]
 
-#def calc(listeMedFag):
-#    kalk = Kalkulator(listeMedFag)
-#    kalk.regnGjennomsnittet()
-#    gjsnitt = str(round(kalk.getGjennomsnitt(),2))
-#    print("Antall Fag: " + str(len(emneliste)) + "\nGir snitt " + gjsnitt)
-#    return gjsnitt
+def calc(listeMedFag):
+    kalk = Kalkulator(listeMedFag)
+    kalk.regnGjennomsnittet()
+    gjsnitt = str(round(kalk.getGjennomsnitt(),2))
+    print("Antall Fag: " + str(len(emneliste)) + "\nGir snitt " + gjsnitt)
+    return gjsnitt
 
 #calc()
 
