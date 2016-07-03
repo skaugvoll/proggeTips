@@ -74,12 +74,9 @@ class userInterface(Frame):
         for i, listbox_entry in enumerate(self.lb.get(0, END)):
             if listbox_entry == fag.toString():
                 self.lb.delete(i)
-        for i in range(len(self.fagListe)):
-            if(self.fagListe[i].toString() == fag.toString()):
-                self.fagListe.__delitem__(i)
-
-
-
+        for j in range(len(self.fagListe)):
+            if(self.fagListe[j].toString() == fag.toString()):
+                self.fagListe.__delitem__(j)
 
 
 
