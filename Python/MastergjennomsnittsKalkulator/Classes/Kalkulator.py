@@ -7,7 +7,11 @@ class Kalkulator:
     def regnGjennomsnittet(self,emner):
         tempKarakter = 0
         if(len(emner) == 0):
+            self.tempKarakter = 0
+            self. studiepoeng = 0
             self.gjennomsnitskarakter = 0
+            return
+
         for emne in emner:
             studiepoeng = 0
             karakter = 0

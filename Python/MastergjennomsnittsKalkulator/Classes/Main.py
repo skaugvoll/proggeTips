@@ -3,7 +3,7 @@ from Kalkulator import Kalkulator
 from GUI import userInterface
 from tkinter import *
 
-
+'''
 #obligatoriske fag
 IT1901 = Fag("Informatikk prosjektarbeid 1","IT1901",7.5,'C')
 IT2901 = Fag('Informatikk prosjektarbeid 2',"IT2901",15,'E')
@@ -30,7 +30,7 @@ def calc(listeMedFag):
     gjsnitt = str(round(kalk.getGjennomsnitt(),2))
     print("Antall Fag: " + str(len(emneliste)) + "\nGir snitt " + gjsnitt)
     return gjsnitt
-
+'''
 #calc()
 
 def main():
