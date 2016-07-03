@@ -13,6 +13,7 @@ class Kalkulator:
             return
 
         for emne in emner:
+            self.tempKarakter = 0
             studiepoeng = 0
             karakter = 0
             aktuelltEmne = emne.getInfo()
