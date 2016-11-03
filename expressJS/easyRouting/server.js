@@ -51,5 +51,5 @@ What this does is that it starts the server, and makes it listen to
 port 3000. and when it has started up, it prints to the console a msg.
 */
 app.listen(3000, function() {
-  console.log('Hello world server listening on port 3000!');
+  console.log('Easy routing server listening on port 3000!');
 });
