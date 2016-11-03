@@ -1,0 +1,14 @@
+{
+  "name": "easyrouting",
+  "version": "1.0.0",
+  "description": "A introduction to how the app.get() method works, and can be used for simple routing with node.js and express.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sigve Skaugvoll",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
