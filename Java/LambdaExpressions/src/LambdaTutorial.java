@@ -169,6 +169,11 @@ public class LambdaTutorial {
      * Lets filter the persons list on persons that are 18 years old or younger.
      *
      * For this we have to use the "stream()" and  "filter()" functions.
+     *
+     * Filter is called on a list, and returns a new list with only the elements that satisfy a predicate.
+     * Filter returns the result as a stream, therefor we use the collect function to capture the stream and save it as a list.
+     *
+     *
      * */
 
     public void filterOnAgeWithLambda(){
