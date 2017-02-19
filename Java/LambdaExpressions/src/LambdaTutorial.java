@@ -152,6 +152,9 @@ public class LambdaTutorial {
      * anyMatch() is a function that takes in a "predicate" instance and returns atleast one of the elements in the stream,
      * that satisfy the "anyMatch requirement". If one match is found, "true" is returned, else "false"
      *
+     * A stream represents a sequence of values, and exposes a set of aggregate operations that allow us to
+     * express common manipulations on those values easily and clearly.
+     *
     * */
 
     public void checkIfListContainsAtleastOneWithGenderMaleWithlambda(){
@@ -216,9 +219,6 @@ public class LambdaTutorial {
         System.out.println("List with every age in the persons list: " + agesInList);
 
     }
-
-
-
 
 
     // Method to run the tutorial examples
