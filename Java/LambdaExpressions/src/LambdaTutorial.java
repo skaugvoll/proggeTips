@@ -191,6 +191,33 @@ public class LambdaTutorial {
     }
 
 
+    /**
+     * Map takes a argument of the type "function-interface".
+     *
+     * Function-interface represents a function that takes in a object of a given type, and returns a value of perhaps a different type.
+     *
+     * If we want to collect all ages in our persons list, we can use the map function to get a persons age.
+     * So therefor we have to use the stream() function to send inn a person at a time, and then use the
+     * map function to do something function-like (return the age), and then we can collect
+     * the age that is returned and save it in a new list.
+     * */
+
+    public void createNewListWithAgesUsingMapAndLambda(){
+        System.out.println("Persons list: " + persons);
+
+        List<Integer> agesInList = persons.stream(). // stream() send one person object at a time in to the .map() function
+                map(
+                    Person::getAge // takes the person object from the stream, and then uses the getage() function, and returns a value
+                ).
+                collect( // we want to collect the value returned from the map function
+                        Collectors.toList() // make a temporary list, since we make a new list this temporary list will be saved, with the name of the list we create.
+                );
+
+        System.out.println("List with every age in the persons list: " + agesInList);
+
+    }
+
+
 
 
 
@@ -215,6 +242,10 @@ public class LambdaTutorial {
         System.out.println("*Filtering on persons younger then 19");
         tutorial.filterOnAgeWithLambda();
 
+        tutorial.printSpacesBetweenMethod();
+
+        System.out.println("*Create new list with ages, using the map function");
+        tutorial.createNewListWithAgesUsingMapAndLambda();
 
     }
 
