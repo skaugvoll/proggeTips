@@ -1,3 +1,6 @@
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.channels.Pipe;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -7,7 +10,6 @@ import java.util.stream.Collectors;
  * Created by skaugvoll on 16.02.2017.
  */
 public class LambdaTutorial {
-
     /*
     * Welcome to Lambda expressions in Java tutorial.
     *
@@ -50,7 +52,6 @@ public class LambdaTutorial {
     * Lambda expressions uses the operator "->"
     * To the left of the "arrow / ->" the arguments that are given to the method is provided,
     * and to the right of the "arrow / ->" the body of the method is defined and what to return.
-    *
     * */
 
     /*
@@ -62,7 +63,6 @@ public class LambdaTutorial {
     *
     * BinaryOparator<T> : a method "apply" that takes in two objects of the given type <T>, and returns ONE object of the type <T>
     *      example is addition: takes in two doubles, and returns the sum as a double .
-    *
     * */
 
     /*
@@ -74,14 +74,12 @@ public class LambdaTutorial {
     *
     * When we have implemented the Person class, we will create a list of persons, and then
     * add 5 person object to the list. So we have some data to play with.
-    *
     * */
-
 
     ArrayList<Person> persons; // Initialize a list to contain persons to use lambdas on.
 
     public LambdaTutorial() {
-        persons = new ArrayList<Person>(); // instanciate / create the list
+        persons = new ArrayList<Person>(); // instantiate / create the list
 
         // Create person object and add to the persons list.
         persons.add(new Person("Ola", 10, 'M'));
@@ -98,7 +96,6 @@ public class LambdaTutorial {
     *
     * This happens for the entire list, and therfore the list is sorted.
     * We just saved a bunch of lines! #Sweet.
-    *
     */
 
     public void sortOnNameWithLambda(){
@@ -119,10 +116,11 @@ public class LambdaTutorial {
         System.out.println(persons);
     }
 
-
-
     /* Lets sort the list of persons after age!
+    *   All we have to do is send in two and two objects from the list, and then compare their age.
+    *   Since age is numeric we can sort the persons. if person a is older than person b, then the value is grater than 1 and person a is sortert AFTER person b.
     *
+    *   returns : a list sorted in ascending order. youngest is first / index 0, oldest is lasts index = list.length -1
     * */
 
     public void sortOnAgeWithLambda(){
@@ -146,15 +144,14 @@ public class LambdaTutorial {
     }
 
     /*
-    * To iterate through each object in a list, the Stream function hits the sweet spot.
+    * To iterate through each object in a list, the __stream__ function hits the sweet spot.
      * It returns one and one (like a for each loop).
      *
-     * anyMatch() is a function that takes in a "predicate" instance and returns atleast one of the elements in the stream,
+     * _anyMatch()__ is a function that takes in a "predicate" instance and returns atleast one of the elements in the stream,
      * that satisfy the "anyMatch requirement". If one match is found, "true" is returned, else "false"
      *
      * A stream represents a sequence of values, and exposes a set of aggregate operations that allow us to
      * express common manipulations on those values easily and clearly.
-     *
     * */
 
     public void checkIfListContainsAtleastOneWithGenderMaleWithlambda(){
@@ -175,8 +172,6 @@ public class LambdaTutorial {
      *
      * Filter is called on a list, and returns a new list with only the elements that satisfy a predicate.
      * Filter returns the result as a stream, therefor we use the collect function to capture the stream and save it as a list.
-     *
-     *
      * */
 
     public void filterOnAgeWithLambda(){
@@ -192,7 +187,6 @@ public class LambdaTutorial {
         System.out.println("New list containing youths: " + youths);
 
     }
-
 
     /**
      * Map takes a argument of the type "function-interface".
@@ -218,6 +212,37 @@ public class LambdaTutorial {
 
         System.out.println("List with every age in the persons list: " + agesInList);
 
+    }
+
+    public void getUsefullLinks() throws URISyntaxException{
+        System.out.println(new URI("https://www.sitepoint.com/java-8-streams-filter-map-reduce/"));  // really good explanations of the functions.
+        System.out.println(new URI("http://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/"));
+    }
+
+    public String getSummary(){
+        String summary = "****SUMMARY****\nThis is a summary of lambda expressions.\nThe __functions__ you need are as followed.\n";
+        String predicate = "predicate is a functional interface and can therefore be used as the assignment target for a lambda expression or method reference.\n" +
+                "The interface Represents a predicate (boolean-valued function) of one argument. Thus a predicate is basically a test\n";
+
+        String streams = "__stream__ is a function that you can use to send in one and one object to the function\n";
+        String anyMatch = "__anyMatch__ is a function that takes in a \"predicate\" instance and returns atleast one of the elements in the stream\n" +
+                " that satisfy the \"anyMatch requirement\". \nIf a match is found, \"true\" is returned, else \"false\"\n" +
+                "NB! This means that the value true or false is returned, NOT the object that matched\n";
+        String filter = "__filter__ is a function that is called on a list, and returns a new list with only the elements that satisfy a predicate.\n" +
+                "Filter returns the result as a stream, therefor we use the __collect__ function to capture the stream and save it as a list.\n";
+        String collect = "";
+        String map = "__map__ is a function that takes a argument of the type \"function-interface\".\n" +
+                " * Function-interface represents a function that takes in a object of a given type, and returns a value of perhaps a different type.\n" +
+                "Basically the function is used to do something / change the stream object into something other and return it to the stream.\n";
+
+        summary += predicate + "\n";
+        summary += streams + "\n";
+        summary += anyMatch + "\n";
+        summary += filter + "\n";
+        summary += collect+ "\n";
+        summary += map + "\n";
+
+        return summary;
     }
 
 
@@ -246,6 +271,17 @@ public class LambdaTutorial {
 
         System.out.println("*Create new list with ages, using the map function");
         tutorial.createNewListWithAgesUsingMapAndLambda();
+
+        tutorial.printSpacesBetweenMethod();
+
+        System.out.println(tutorial.getSummary());
+        System.out.println("\nUsefull links");
+        try{
+            tutorial.getUsefullLinks();
+        }
+        catch (URISyntaxException e){
+            System.out.println(e);
+        }
 
     }
 
