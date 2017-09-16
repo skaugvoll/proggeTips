@@ -3,7 +3,7 @@
 Task: take in a number, check if it is a palindrom, or if the sum of itself multiplied with 2 is a palindrom
 Check if, for 100 multiplications
 
-Palindrom = a number that is the same backwards. 121, 11, 55, 110,
+Palindrom = a number that is the same backwards. 121, 11, 55,
 
 example : 28 + 82 = 110 + 011 = 121 --> palindrome
 example : 196 is not a palindrom, or any of its multiplications. should then return -1
