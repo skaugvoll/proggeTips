@@ -16,3 +16,6 @@ hs_err_pid*
 Java/LambdaExpressions/\.idea/workspace\.xml
 
 Java/LambdaExpressions/\.idea/
+
+# Visual Studio stuff
+.vs/
