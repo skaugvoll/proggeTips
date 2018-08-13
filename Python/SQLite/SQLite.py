@@ -49,14 +49,13 @@ class SQLLite:
         except:
             return False
         
-    def executeQueryStatement(self): # denne mtoden kan ogsaa gjore som executeInsertStatement og ta inn en query/statement som parameter
+    def executeQueryStatement(self, query="SELECT * FROM Friends"): # denne mtoden kan ogsaa gjore som executeInsertStatement og ta inn en query/statement som parameter
         '''
         Denne metoden utforer hentinger/data-henting fra databasen.
         :return: liste med alle tupplene fra databasen. False hvis det ikke gikk.
         '''
-        query = "SELECT * FROM Friends"
         self.cursor.execute(query)
-        return createResultSet
+        return self._createResultSet()
 
     def _createResultSet(self):  # _ framfor funksjons/metode navnet sier at dette er en private-metode. eks: _privatMetode 
         '''
@@ -91,6 +90,7 @@ def main():
     conn = SQLLite(path) # oppretter et objekt 'conn' av SQLite.py klassen, sender inn path som argument/parameter til konstruktøren. 
     conn.establishConnection() # etablerer forbindelse mellom objektet og databasen
     conn.executeInsertStatement("insert into Friends values('Thomas.',23,'97182999')") # Setter inn ny tuppel/objekt i database tabellen Friends
+    conn.executeQueryStatement()
     conn.closeConnection() # lukker commiter innsettingen og lukker forbindelsen mellom conn objektet og databasen.
 
 main()
