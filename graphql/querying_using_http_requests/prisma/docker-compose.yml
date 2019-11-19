@@ -24,5 +24,7 @@ services:
       - mysql:/var/lib/mysql
   cron:
     build: ./cronJob/
+    environment:
+      - PRISMA_SERVICE=prisma
 volumes:
   mysql: ~

@@ -7,7 +7,7 @@ curl \
   -H "authorization: Bearer xxx" \
   --data '{
   "query": "mutation { createTest(data: {name: \"test\", date: \"2019-10-19T17:44:08.878Z\"} ) { id name status date } }" }'\
-  prisma:5000
+  ${PRISMA_SERVICE}:5000
 
 
-echo Job executed
+echo Job executed at `date`
