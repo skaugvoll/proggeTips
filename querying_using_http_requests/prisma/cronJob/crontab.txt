@@ -1,0 +1,1 @@
+* * * * * /script.sh | tee -a /var/log/scriptLog.txt
