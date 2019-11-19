@@ -38,3 +38,17 @@ mutation one {
   }
 }
 
+## Run files
+if you just want to run some of the project without docker (execute single project files)
+
+1. install prisma client (if on mac and homebrew: `brew install prisma`)
+2. `prisma deploy`
+3. use `terminal` to run `.sh` files (e.g `sh _script_query.sh`)
+4. use `python` with `requests` module installed to run `.py` files.
+
+## Run sidecar project
+1. install `docker`
+2. install `dokcer-compose`
+
+3. `docker-compose build`
+4. `docker-compose up -d`
