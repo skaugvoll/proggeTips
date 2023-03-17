@@ -1,0 +1,46 @@
+:root {
+  --menu-size: 32px;
+  --menu-animation-length: 0.3s;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 10px;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.rect,
+.rect2 {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--menu-size);
+  max-height: var(--menu-size);
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.line {
+  width: 100%;
+  height: calc(100% - 85%);
+  background-color: black;
+}
+
+.rect > .animate {
+  transform: scale(1, 1);
+  transition-duration: var(--menu-animation-length);
+}
+
+.rect:hover > .animate {
+  transform: scale(0.4, 1);
+  transition-duration: var(--menu-animation-length);
+  transition-delay: 150;
+  transition-timing-function: ease-in-out;
+}
