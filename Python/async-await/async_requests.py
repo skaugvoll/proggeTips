@@ -21,7 +21,10 @@ def async_requests(urls: list[str]):
     def fetch_data(url):
       return requests.get(url)
 
+  print(w.result.timings)  # remove this for more accurate comparison
   # Execute the requests and gather results and return results
+  # can print the response's fact id to verify that different requests were made
+  # print([w.result.fetch_data[i].json()["data"][0]["id"] for i in range(len(urls))])
   return [w.result.fetch_data[i].status_code for i in range(len(urls))]
 
 
@@ -35,6 +38,7 @@ async def asyncio_async_requests_simple(urls: list[str]):
     async def async_fetch_data(url):
       return requests.get(url).status_code
 
+  print(w.result.timings)  # remove this for more accurate comparison
   return w.result.final
 
 
@@ -58,6 +62,7 @@ async def asyncio_async_requests_adv(urls: list[str]):
     async def summary(create_http_status_response_array):
       return create_http_status_response_array
 
+  print(w.result.timings)  # remove this for more accurate comparison
   return w.result.summary
 
 
