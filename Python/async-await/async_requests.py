@@ -1,3 +1,4 @@
+import asyncio
 import time
 
 import requests
@@ -24,6 +25,42 @@ def async_requests(urls: list[str]):
   return [w.result.fetch_data[i].status_code for i in range(len(urls))]
 
 
+async def asyncio_async_requests_simple(urls: list[str]):
+  """
+  Simplest form of using async/await with Asyncio and Wove.
+  """
+  async with weave(debug=False) as w:
+
+    @w.do(urls)
+    async def async_fetch_data(url):
+      return requests.get(url).status_code
+
+  return w.result.final
+
+
+async def asyncio_async_requests_adv(urls: list[str]):
+  """
+  Another way to enable more concurrency and processing, but a bit overkill since we don't need to split into 3 ops.
+  """
+  async with weave(debug=False) as w:
+
+    @w.do(urls)
+    async def async_fetch_data(url):
+      return requests.get(url)
+
+    @w.do("async_fetch_data")
+    async def create_http_status_response_array(response):
+      return response.status_code
+
+    # Collects the results.
+    # You can mix `async def` and `def` tasks.
+    @w.do
+    async def summary(create_http_status_response_array):
+      return create_http_status_response_array
+
+  return w.result.summary
+
+
 def main():
   """
   'Compare the time it takes to do 10 concurrent HTTP requests and print their status codes'
@@ -40,6 +77,17 @@ def main():
   async_requests_end = time.time()
   print("Concurrent status codes:", async_status_codes)
   print("Concurrent requests took:", async_requests_end - async_requests_start, "seconds")
+  print("--------------------------------\n")
+
+  print("\n--------------------------------")
+  print(f"Starting {len(urls)} async Asyncio requests...")
+  print("--------------------------------")
+  asyncio_async_requests_start = time.time()
+  asyncio_async_status_codes = asyncio.run(asyncio_async_requests_simple(urls))
+  # asyncio_async_status_codes = asyncio.run(asyncio_async_requests_adv(urls))
+  asyncio_async_requests_end = time.time()
+  print("Async asyncio status codes:", asyncio_async_status_codes)
+  print("Async asyncio requests took:", asyncio_async_requests_end - asyncio_async_requests_start, "seconds")
   print("--------------------------------\n")
 
   print("\n--------------------------------")
