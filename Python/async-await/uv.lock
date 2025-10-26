@@ -10,6 +10,7 @@ dependencies = [
     { name = "asyncio" },
     { name = "requests" },
     { name = "ruff" },
+    { name = "wove" },
 ]
 
 [package.metadata]
@@ -17,6 +18,7 @@ requires-dist = [
     { name = "asyncio", specifier = ">=4.0.0" },
     { name = "requests", specifier = ">=2.32.5" },
     { name = "ruff", specifier = ">=0.14.1" },
+    { name = "wove", specifier = ">=1.0.0" },
 ]
 
 [[package]]
@@ -79,6 +81,15 @@ wheels = [
 ]
 
 [[package]]
+name = "cloudpickle"
+version = "3.1.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/52/39/069100b84d7418bc358d81669d5748efb14b9cceacd2f9c75f550424132f/cloudpickle-3.1.1.tar.gz", hash = "sha256:b216fa8ae4019d5482a8ac3c95d8f6346115d8835911fd4aefd1a445e4242c64", size = 22113, upload-time = "2025-01-14T17:02:05.085Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7e/e8/64c37fadfc2816a7701fa8a6ed8d87327c7d54eacfbfb6edab14a2f2be75/cloudpickle-3.1.1-py3-none-any.whl", hash = "sha256:c8c5a44295039331ee9dad40ba100a9c7297b6f988e50e87ccdf3765a668350e", size = 20992, upload-time = "2025-01-14T17:02:02.417Z" },
+]
+
+[[package]]
 name = "idna"
 version = "3.11"
 source = { registry = "https://pypi.org/simple" }
@@ -135,4 +146,16 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz", hash = "sha256:3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760", size = 393185, upload-time = "2025-06-18T14:07:41.644Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a7/c2/fe1e52489ae3122415c51f387e221dd0773709bad6c6cdaa599e8a2c5185/urllib3-2.5.0-py3-none-any.whl", hash = "sha256:e6b01673c0fa6a13e374b50871808eb3bf7046c4b125b216f6bf1cc604cff0dc", size = 129795, upload-time = "2025-06-18T14:07:40.39Z" },
+]
+
+[[package]]
+name = "wove"
+version = "1.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "cloudpickle" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/32/4d/76800bc89abcaf9619bbce31f21f2d5d4570f7771869a1d0a53402c3b415/wove-1.0.0.tar.gz", hash = "sha256:6e66c3b4f3e3511f9170deac5c8eb9500a295d3350c488a3a222b78e880a29c5", size = 39064, upload-time = "2025-10-23T21:50:39.233Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/77/d7/3dfab99b4cafb8cddd3fa496c37eaa5f65b3b3cdb7337aa5d62bc0f78523/wove-1.0.0-py3-none-any.whl", hash = "sha256:9354a51e53b37c7d3843a4ad9c98fd9d2ae03c1a9acb205f32a1feb55ab4b4f0", size = 24109, upload-time = "2025-10-23T21:50:38.019Z" },
 ]
