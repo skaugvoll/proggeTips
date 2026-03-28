@@ -20,6 +20,8 @@ Java/LambdaExpressions/\.idea/workspace\.xml
 
 Java/LambdaExpressions/\.idea/
 
+__pycache__/
+
 # Visual Studio stuff
 .vs/
 **/.DS_Store
