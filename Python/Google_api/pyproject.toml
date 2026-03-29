@@ -1,0 +1,27 @@
+[project]
+name = "Google_api"
+version = "0.1.0"
+description = "Playground for Google API usage in Python"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "google>=3.0.0",
+    "google-api-python-client>=2.187.0",
+    "google-auth>=2.43.0",
+    "google-auth-httplib2>=0.2.1",
+    "google-auth-oauthlib>=1.2.2",
+    "python-dotenv>=1.2.1",
+    "pyyaml>=6.0.3",
+    "yamale==6.0.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[dependency-groups]
+lint = [
+    "ruff>=0.15.8",
+]
+test = [
+    "pytest>=8.4.2",
+]

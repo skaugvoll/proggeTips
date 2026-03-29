@@ -1,0 +1,14 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+service-account-creds.json
+# _package_Inventory_config.yml is not sensitive, as spreadsheet_id is not sensitive/secret, but I don't like the idea of having it in the repo, so I will ignore it. It can be generated from the template file.
+_package_inventory_config.yml

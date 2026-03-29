@@ -1,0 +1,12 @@
+name: google_api_env
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.14
+  - pip
+
+  # pip packages (important for Google libs)
+  # - pip:
